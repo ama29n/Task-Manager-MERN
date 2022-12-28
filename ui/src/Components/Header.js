@@ -76,6 +76,7 @@ function Header() {
             onChange={inputChangeHandler}
             className={style.input}
             type="text"
+            placeholder="Add a task..."
           />
           <Button
             variant="contained"
