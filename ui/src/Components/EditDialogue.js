@@ -55,12 +55,14 @@ export default function CustomizedDialogs(props) {
 
   const [input, setInput] = useState("");
 
+  const URL = process.env.REACT_APP_BACKEND_URL;
+
   const handleClickOpen = () => {
     setOpen(true);
   };
   const handleClose = async () => {
     setOpen(false);
-    await axios.patch(`/app/${props.id}`, {
+    await axios.patch(`${URL}/app/${props.id}`, {
         name: input
     })
     setInput("");

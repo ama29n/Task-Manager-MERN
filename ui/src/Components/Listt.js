@@ -16,7 +16,6 @@ import EditDialogue from './EditDialogue'
 function Listt() {
   const values = useContext(ToDoContext);
   const URL = process.env.REACT_APP_BACKEND_URL;
-  console.log(URL);
   useEffect(() => {
     axios
       .get(URL + "/app/")

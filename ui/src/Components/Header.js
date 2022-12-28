@@ -8,13 +8,15 @@ import ToDoContext from "../Context/ToDoContext";
 function Header() {
   const [input, setInput] = useState("");
 
+  const URL = process.env.REACT_APP_BACKEND_URL;
+
   const values = useContext(ToDoContext);
 
   const addButtonHandler = async (e) => {
     try {
       e.preventDefault();
 
-      const response = await axios.post("/app/", {
+      const response = await axios.post(URL + "/app/", {
         name: input,
         completed: false,
       });
@@ -28,12 +30,12 @@ function Header() {
 
   useEffect(() => {
     axios
-      .get("/app/")
+      .get(URL + "/app/")
       .then((response) => {
         values.updateData(response.data.tasks);
       })
       .catch((err) => console.log(err));
-  }, [values]);
+  }, [values, URL]);
 
   const inputChangeHandler = (e) => {
     setInput(e.target.value);
