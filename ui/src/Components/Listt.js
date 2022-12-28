@@ -15,20 +15,21 @@ import EditDialogue from './EditDialogue'
 
 function Listt() {
   const values = useContext(ToDoContext);
-
+  const URL = process.env.REACT_APP_BACKEND_URL;
+  console.log(URL);
   useEffect(() => {
     axios
-      .get("/app/")
+      .get(URL + "/app/")
       .then((response) => {
         values.updateData(response.data.tasks);
       })
       .catch((err) => console.log(err));
-  }, [values]);
+  }, [values, URL]);
 
   const handleToggle = async (e) => {
     try {
       const id = e.target.id;
-      const response = await axios.patch(`/app/${id}`);
+      const response = await axios.patch(`${URL}/app/${id}`);
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -39,10 +40,10 @@ function Listt() {
     e.preventDefault();
 
     try {
-      const response1 = await axios.delete(`/app/${e.target.id}`);
+      const response1 = await axios.delete(`${URL}/app/${e.target.id}`);
       console.log(response1);
 
-      const response2 = await axios.get("/app/");
+      const response2 = await axios.get(URL + "/app/");
       values.updateData(response2.data.tasks);
     } catch (error) {
       console.log(error);
