@@ -1,0 +1,21 @@
+{
+  "name": "taskmanager-mern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd server && yarn add all && cd ../ui && npm install && npm run build",
+    "start": "node server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ama29n/TaskManager-MERN.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ama29n/TaskManager-MERN/issues"
+  },
+  "homepage": "https://github.com/ama29n/TaskManager-MERN#readme"
+}
