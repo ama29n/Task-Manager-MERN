@@ -8,6 +8,10 @@ dotenv.config();
 // Body Parser
 app.use(express.json());
 
+app.use((req, res, next) => {
+    res.append('Access-Control-Allow-Origin', ["https://taskmanager-ama29n.onrender.com/"])
+});
+
 // Middleware
 app.use("/app", route);
 
